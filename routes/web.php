@@ -29,6 +29,7 @@ Route::controller(\App\Http\Controllers\FileController::class)
     ->middleware(['auth', 'verified'])
     ->group(function () {
         Route::get('/my-files', 'myFiles')->name('myFiles');
+        Route::get('/folder/create', 'createFolder')->name('folder.create');
     });
 
 Route::middleware('auth')->group(function () {
