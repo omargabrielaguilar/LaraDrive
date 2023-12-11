@@ -12,7 +12,7 @@
                 class="absolute left-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
                 <div class="px-1 py-1">
                     <MenuItem v-slot="{ active }">
-                    <a href="" class="text-gray-700 block px-2 py-2 text-sm">Nueva Carpeta</a>
+                    <a href="#" @click.prevent="showCreateFolderModal()" class="text-gray-700 block px-2 py-2 text-sm">Nueva Carpeta</a>
                     </MenuItem>
                 </div>
                 <div class="px-1 py-1">
@@ -31,5 +31,12 @@
 <script setup>
 import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue';
 import ResponsiveNavLink from '../ResponsiveNavLink.vue';
+
+
+//Methods
+function showCreateFolderModal()
+{
+    
+}
 
 </script>
