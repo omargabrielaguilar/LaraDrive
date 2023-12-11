@@ -15,18 +15,16 @@
         class="absolute right-0 mt-2 w-32 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black/5 focus:outline-none">
         <div class="px-1 py-1">
           <MenuItem v-slot="{ active }">
-            <ResponsiveNavLink :href="route('profile.edit')"
-                               :class="[active ? 'bg-grey-100 text-gray-900' : 'text-gray-700', 
-                               'block px-4 py-2 text-sm']">
+          <ResponsiveNavLink :href="route('profile.edit')" :class="[active ? 'bg-grey-100 text-gray-900' : 'text-gray-700',
+            'block px-4 py-2 text-sm']">
             Perfil
-            </ResponsiveNavLink>
+          </ResponsiveNavLink>
           </MenuItem>
           <MenuItem v-slot="{ active }">
-            <ResponsiveNavLink :href="route('logout')"
-                               :class="[active ? 'bg-grey-100 text-gray-900' : 'text-gray-700', 
-                               'block px-4 py-2 text-sm']">
+          <ResponsiveNavLink :href="route('logout')" method="post" as="button" :class="[active ? 'bg-grey-100 text-gray-900' : 'text-gray-700',
+            'block px-4 py-2 text-sm']">
             Cerrar Sesión
-            </ResponsiveNavLink>
+          </ResponsiveNavLink>
           </MenuItem>
         </div>
       </MenuItems>

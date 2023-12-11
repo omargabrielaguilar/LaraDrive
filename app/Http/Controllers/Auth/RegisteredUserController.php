@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Inertia\Inertia;
 use Inertia\Response;
-
+use App\Models\File;
 class RegisteredUserController extends Controller
 {
     /**
@@ -46,6 +46,12 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        $file = new File();
+        $file->name = $request->name;
+        $file->is_folder = 1;
+        $file->makeRoot()->save();
+
 
         return redirect(RouteServiceProvider::HOME);
     }
