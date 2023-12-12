@@ -6,6 +6,7 @@ use App\Traits\HasCreatorAndUpdater;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Kalnoy\Nestedset\NodeTrait;
 
 class File extends Model
@@ -30,7 +31,7 @@ class File extends Model
 
     public function isRoot()
     {
-        
+        return $this->parent_id == null;
     }
 
     protected static function boot()
@@ -38,9 +39,10 @@ class File extends Model
         parent::boot();
 
         static::creating(function ($model) {
-            if(!model->parent){
+            if (!$model->parent) {
                 return;
             }
-            $model->path = ($model->parent->)
+            $model->path = ( !$model->parent->isRoot() ? $model->parent->path . '/' : '' ) . Str::slug($model->name);
+        });
     }
 }
